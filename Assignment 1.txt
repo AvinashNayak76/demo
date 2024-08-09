@@ -1,0 +1,39 @@
+ Assignment 1:
+
+az group create -n new-rg -l southcentralus
+
+Assignment 2:
+
+Get-AzSubscription
+
+New-AzresourceGroup -n rg-powershell -l southcentralus
+
+Assignment 3:
+
+For powershell:
+
+New-AzresourceGroup -n rg1 -l westus && New-AzresourceGroup -n rg2 -l westus && New-AzresourceGroup -n rg3 -l westus 
+
+For Bash:
+
+az group create -n rg1 -l westus && az group create -n rg2 -l westus && az group create -n rg3 -l westus
+
+Listing:
+
+For powershell:
+
+Get-AzresourceGroup -l westus
+
+For Bash:
+
+az group list --query "[?location=='westus']" -o table
+
+Assignment 4:
+
+Bash:
+
+az group list --query "[?location=='westus']".name -o tsv | xargs -otl az group delete -n
+
+Powershell:
+
+Get-AzresourceGroup -l westus | remove-azresourcegroup
